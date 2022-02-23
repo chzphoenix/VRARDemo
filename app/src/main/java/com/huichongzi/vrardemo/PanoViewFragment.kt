@@ -1,6 +1,7 @@
 package com.huichongzi.vrardemo
 
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,8 +30,15 @@ class PanoViewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         activity?.apply {
-            var option = VrPanoramaView.Options()
-            if(arguments?.getBoolean("isMono") == true){
+            val option = VrPanoramaView.Options()
+
+            val uri = arguments?.getParcelable<Uri>("uri")
+            if(uri != null){
+                var bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(uri))
+                option.inputType = arguments?.getInt("type") ?: VrPanoramaView.Options.TYPE_MONO
+                _binding?.vrPano?.loadImageFromBitmap(bitmap, option)
+            }
+            else if(arguments?.getBoolean("isMono") == true){
                 var bitmap = BitmapFactory.decodeStream(assets.open("monoimage.jpeg"))
                 option.inputType = VrPanoramaView.Options.TYPE_MONO
                 _binding?.vrPano?.loadImageFromBitmap(bitmap, option)
@@ -40,6 +48,7 @@ class PanoViewFragment : Fragment() {
                 option.inputType = VrPanoramaView.Options.TYPE_STEREO_OVER_UNDER
                 _binding?.vrPano?.loadImageFromBitmap(bitmap, option)
             }
+
             _binding?.vrPano?.setEventListener(object : VrPanoramaEventListener() {
                 override fun onLoadSuccess() {
                     super.onLoadSuccess()

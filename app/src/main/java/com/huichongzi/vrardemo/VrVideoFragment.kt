@@ -1,5 +1,6 @@
 package com.huichongzi.vrardemo
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +30,13 @@ class VrVideoFragment : Fragment() {
 
         var options = VrVideoView.Options()
         options.inputFormat = VrVideoView.Options.FORMAT_DEFAULT
-        if(arguments?.getBoolean("isMono") == true){
+
+        val uri = arguments?.getParcelable<Uri>("uri")
+        if(uri != null){
+            options.inputType = arguments?.getInt("type") ?: VrVideoView.Options.TYPE_MONO
+            _binding?.vrVideo?.loadVideo(uri, options)
+        }
+        else if(arguments?.getBoolean("isMono") == true){
             options.inputType = VrVideoView.Options.TYPE_MONO
             _binding?.vrVideo?.loadVideoFromAsset("pingpang.mp4", options)
         }
@@ -37,6 +44,7 @@ class VrVideoFragment : Fragment() {
             options.inputType = VrVideoView.Options.TYPE_STEREO_OVER_UNDER
             _binding?.vrVideo?.loadVideoFromAsset("congo.mp4", options)
         }
+
         _binding?.vrVideo?.setEventListener(object : VrVideoEventListener() {
             override fun onLoadSuccess() {
                 super.onLoadSuccess()

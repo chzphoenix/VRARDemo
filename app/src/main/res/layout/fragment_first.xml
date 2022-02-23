@@ -14,17 +14,19 @@
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/pano_stereo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:layout_marginLeft="30dp"
             android:text="PanoStereo"/>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/pano_mono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:layout_marginLeft="30dp"
             android:text="PanoMono"/>
     </LinearLayout>
@@ -34,18 +36,42 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/vr_video_stereo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:layout_marginLeft="30dp"
             android:text="VrVideoStereo"/>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/vr_video_mono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:layout_marginLeft="30dp"
             android:text="VrVideomono"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+        <Button
+            android:id="@+id/pano_local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginLeft="30dp"
+            android:text="PanoLocal"/>
+
+        <Button
+            android:id="@+id/video_local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginLeft="30dp"
+            android:text="VideoLocal"/>
     </LinearLayout>
 </LinearLayout>

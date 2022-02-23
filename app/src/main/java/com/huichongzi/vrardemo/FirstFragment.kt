@@ -1,13 +1,17 @@
 package com.huichongzi.vrardemo
 
+import android.app.Dialog
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
 import com.google.vr.sdk.widgets.pano.VrPanoramaView
+import com.google.vr.sdk.widgets.video.VrVideoView
 import com.huichongzi.vrardemo.databinding.FragmentFirstBinding
 
 /**
@@ -20,6 +24,36 @@ class FirstFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    val getPano = registerForActivityResult(ActivityResultContracts.GetContent()){ uri : Uri? ->
+        uri?.let { uri ->
+            activity?.apply {
+                val dialog = TypeDialog()
+                dialog.setListener { type ->
+                    var bundle = Bundle()
+                    bundle.putInt("type", if(type == 0) VrPanoramaView.Options.TYPE_MONO else VrPanoramaView.Options.TYPE_STEREO_OVER_UNDER)
+                    bundle.putParcelable("uri", uri)
+                    findNavController().navigate(R.id.action_FirstFragment_to_panoViewFragment, bundle)
+                }
+                dialog.show(supportFragmentManager, null)
+            }
+        }
+    }
+
+    val getVideo = registerForActivityResult(ActivityResultContracts.GetContent()){ uri : Uri? ->
+        uri?.let { uri ->
+            activity?.apply {
+                val dialog = TypeDialog()
+                dialog.setListener { type ->
+                    var bundle = Bundle()
+                    bundle.putInt("type", if(type == 0) VrVideoView.Options.TYPE_MONO else VrVideoView.Options.TYPE_STEREO_OVER_UNDER)
+                    bundle.putParcelable("uri", uri)
+                    findNavController().navigate(R.id.action_FirstFragment_to_vrVideoFragment, bundle)
+                }
+                dialog.show(supportFragmentManager, null)
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,6 +87,12 @@ class FirstFragment : Fragment() {
             var bundle = Bundle()
             bundle.putBoolean("isMono", true)
             findNavController().navigate(R.id.action_FirstFragment_to_vrVideoFragment, bundle)
+        }
+        _binding?.panoLocal?.setOnClickListener {
+            getPano.launch("image/*")
+        }
+        _binding?.videoLocal?.setOnClickListener {
+            getVideo.launch("video/*")
         }
     }
 
