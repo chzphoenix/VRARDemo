@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.huichongzi.vrardemo.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_FirstFragment_to_panoViewFragment"
+            app:destination="@id/panoViewFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_vrVideoFragment"
+            app:destination="@id/vrVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/panoViewFragment"
+        android:name="com.huichongzi.vrardemo.PanoViewFragment"
+        android:label="fragment_pano_view"
+        tools:layout="@layout/fragment_pano_view" >
+        <action
+            android:id="@+id/action_panoViewFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vrVideoFragment"
+        android:name="com.huichongzi.vrardemo.VrVideoFragment"
+        android:label="fragment_vr_video"
+        tools:layout="@layout/fragment_vr_video" >
+        <action
+            android:id="@+id/action_vrVideoFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+</navigation>
