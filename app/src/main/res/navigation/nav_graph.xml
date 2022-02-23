@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_vrVideoFragment"
             app:destination="@id/vrVideoFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_gvrDemoActivity"
+            app:destination="@id/gvrDemoActivity" />
     </fragment>
     <fragment
         android:id="@+id/panoViewFragment"
@@ -35,4 +38,8 @@
             android:id="@+id/action_vrVideoFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <activity
+        android:id="@+id/gvrDemoActivity"
+        android:name="com.huichongzi.vrardemo.GvrDemoActivity"
+        android:label="GvrDemoActivity" />
 </navigation>
