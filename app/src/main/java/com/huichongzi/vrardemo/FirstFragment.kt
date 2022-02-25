@@ -94,6 +94,9 @@ class FirstFragment : Fragment() {
         _binding?.videoLocal?.setOnClickListener {
             getVideo.launch("video/*")
         }
+        _binding?.glesDemo?.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_GLESDemoFragment)
+        }
         _binding?.gvrDemo?.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_gvrDemoActivity)
         }

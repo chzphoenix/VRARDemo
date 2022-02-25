@@ -80,6 +80,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/gles_demo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginLeft="30dp"
+            android:text="GLESDemo"/>
+
         <Button
             android:id="@+id/gvr_demo"
             android:layout_width="wrap_content"

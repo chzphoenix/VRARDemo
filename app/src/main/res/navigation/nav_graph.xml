@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_gvrDemoActivity"
             app:destination="@id/gvrDemoActivity" />
+        <action
+            android:id="@+id/action_FirstFragment_to_GLESDemoFragment"
+            app:destination="@id/GLESDemoFragment" />
     </fragment>
     <fragment
         android:id="@+id/panoViewFragment"
@@ -42,4 +45,12 @@
         android:id="@+id/gvrDemoActivity"
         android:name="com.huichongzi.vrardemo.GvrDemoActivity"
         android:label="GvrDemoActivity" />
+    <fragment
+        android:id="@+id/GLESDemoFragment"
+        android:name="com.huichongzi.vrardemo.GLESDemoFragment"
+        android:label="GLESDemoFragment" >
+        <action
+            android:id="@+id/action_GLESDemoFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
 </navigation>
