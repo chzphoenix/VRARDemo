@@ -36,7 +36,7 @@ class GLESDemoFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding?.glSurface?.apply {
-            setEGLContextClientVersion(3)
+            setEGLContextClientVersion(2)
             setRenderer(object : GLSurfaceView.Renderer{
                 override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
                     //设置背景颜色
@@ -79,8 +79,8 @@ class GLESDemoFragment : Fragment(){
                     //GLES20.glDrawArrays(GLES20.GL_LINE_STRIP, 0, 3)
 
                     //绘制物体
-                    var indices = ByteBuffer.wrap(byteArrayOf(0,1,2))
-                    GLES20.glDrawElements(GLES20.GL_TRIANGLES, 3, GLES20.GL_INT, indices)
+//                    var indices = ByteBuffer.wrap(byteArrayOf(0,1,2))
+//                    GLES20.glDrawElements(GLES20.GL_TRIANGLES, 3, GLES20.GL_INT, indices)
 
                     //禁用顶点位置句柄
                     GLES20.glDisableVertexAttribArray(attr)

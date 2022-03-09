@@ -37,7 +37,7 @@ class GvrDemoActivity : GvrActivity(), GvrView.StereoRenderer {
 
     var objProgram = 0
     var objectPositionParam = 0
-    //var objectModelViewProjectionParam = 0;
+    var objectModelViewProjectionParam = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,7 +76,7 @@ class GvrDemoActivity : GvrActivity(), GvrView.StereoRenderer {
 
         //将modelViewProjection输入顶点着色器（u_MVP）
         GLES20.glUseProgram(objProgram)
-        //GLES20.glUniformMatrix4fv(objectModelViewProjectionParam, 1, false, modelViewProjection, 0)
+        GLES20.glUniformMatrix4fv(objectModelViewProjectionParam, 1, false, modelViewProjection, 0)
 
         //启用顶点位置句柄
         GLES20.glEnableVertexAttribArray(objectPositionParam)
@@ -111,10 +111,11 @@ class GvrDemoActivity : GvrActivity(), GvrView.StereoRenderer {
         objProgram = ShaderUtils.linkProgram(vertexShaderId, fragmentShaderId)
 
         //获取u_MVP这个输入量
-        //objectModelViewProjectionParam = GLES20.glGetUniformLocation(objProgram, "u_MVP")
+        objectModelViewProjectionParam = GLES20.glGetUniformLocation(objProgram, "u_MVP")
         objectPositionParam = GLES20.glGetAttribLocation(objProgram, "vPosition")
 
         //初始化modelTarget
+        //应该物体的初始偏移位置，修改这里物体在VR空间内的位置就会变动
         Matrix.setIdentityM(modelTarget, 0)
         Matrix.translateM(modelTarget, 0,0.0f, 0.0f, -3.0f)
     }
