@@ -66,15 +66,22 @@ class GvrDemoActivity : GvrActivity(), GvrView.StereoRenderer {
         GLES20.glEnable(GLES20.GL_DEPTH_TEST) //启用深度测试，自动隐藏被遮住的材料
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT or GLES20.GL_DEPTH_BUFFER_BIT)
 
-        //将眼睛的位置变化应用到相机
+        //将眼睛的位置变化应用到相机，获取世界坐标系到眼坐标系的转换矩阵
         Matrix.multiplyMM(view, 0, eye.eyeView, 0, camera, 0)
 
-        val perspective = eye.getPerspective(Z_NEAR, Z_FAR)
-
+        //将物体的世界坐标转换成眼坐标（视图坐标系）
         Matrix.multiplyMM(modelView, 0, view, 0, modelTarget, 0)
+
+        //将物体的眼坐标转换成剪裁坐标（投影坐标系）
+        //以上都是针对三维的顶点坐标进行转换，但是最终呈现在屏幕上还是一个二维坐标，所以需要一个投影过程
+        //这里的计算将物体在视图坐标系中的三维坐标映射到二维坐标中，这样才能正常绘制出来
+        val perspective = eye.getPerspective(Z_NEAR, Z_FAR)
         Matrix.multiplyMM(modelViewProjection, 0, perspective, 0, modelView, 0)
 
         //将modelViewProjection输入顶点着色器（u_MVP）
+        //这样通过着色器处理，物体的顶点通过以上4个坐标系（局部坐标系、世界坐标系、视图坐标系和投影坐标系）和
+        //三个变换矩阵（modelTarget、view、perspective），再通过着色器处理得到了在屏幕上的坐标（屏幕坐标系）
+        //最终物体的顶点经过一系列变换最终被映射到屏幕上进行绘制
         GLES20.glUseProgram(objProgram)
         GLES20.glUniformMatrix4fv(objectModelViewProjectionParam, 1, false, modelViewProjection, 0)
 
@@ -115,7 +122,8 @@ class GvrDemoActivity : GvrActivity(), GvrView.StereoRenderer {
         objectPositionParam = GLES20.glGetAttribLocation(objProgram, "vPosition")
 
         //初始化modelTarget
-        //应该物体的初始偏移位置，修改这里物体在VR空间内的位置就会变动
+        //物体的世界坐标转换矩阵，将物体的局部坐标转成世界坐标
+        //物体的顶点与它相乘就会得到世界坐标系中的位置，这样就确定了每个物体在三维空间的位置
         Matrix.setIdentityM(modelTarget, 0)
         Matrix.translateM(modelTarget, 0,0.0f, 0.0f, -3.0f)
     }
