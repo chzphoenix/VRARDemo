@@ -92,7 +92,8 @@ class FirstFragment : Fragment() {
             getPano.launch("image/*")
         }
         _binding?.videoLocal?.setOnClickListener {
-            getVideo.launch("video/*")
+            //getVideo.launch("video/*")
+            getVideo.launch("*/*")   //浏览所有文件
         }
         _binding?.glesDemo?.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_GLESDemoFragment)
