@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PanoViewFragment">
+    tools:context=".vr.PanoViewFragment">
 
     <com.google.vr.sdk.widgets.pano.VrPanoramaView
         android:id="@+id/vr_pano"

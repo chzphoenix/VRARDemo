@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GvrDemoActivity"
+        <activity android:name=".vr.GvrDemoActivity"
             android:screenOrientation="landscape"
             android:enableVrMode="@string/gvr_vr_mode_component"
             android:resizeableActivity="false"/>

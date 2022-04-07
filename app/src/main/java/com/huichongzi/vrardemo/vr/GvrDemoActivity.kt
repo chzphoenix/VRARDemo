@@ -1,4 +1,4 @@
-package com.huichongzi.vrardemo
+package com.huichongzi.vrardemo.vr
 
 import android.os.Bundle
 import com.google.vr.sdk.base.*
@@ -6,11 +6,10 @@ import com.huichongzi.vrardemo.databinding.ActivityGvrDemoBinding
 import javax.microedition.khronos.egl.EGLConfig
 import android.opengl.GLES20
 import android.opengl.Matrix
-import android.util.Log
+import com.huichongzi.vrardemo.R
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.FloatBuffer
-import java.util.*
 
 
 class GvrDemoActivity : GvrActivity(), GvrView.StereoRenderer {

@@ -11,46 +11,58 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
         <action
-            android:id="@+id/action_FirstFragment_to_panoViewFragment"
-            app:destination="@id/panoViewFragment" />
-        <action
-            android:id="@+id/action_FirstFragment_to_vrVideoFragment"
-            app:destination="@id/vrVideoFragment" />
-        <action
-            android:id="@+id/action_FirstFragment_to_gvrDemoActivity"
-            app:destination="@id/gvrDemoActivity" />
-        <action
-            android:id="@+id/action_FirstFragment_to_GLESDemoFragment"
-            app:destination="@id/GLESDemoFragment" />
+            android:id="@+id/action_FirstFragment_to_vrFragment"
+            app:destination="@id/vrFragment" />
     </fragment>
     <fragment
         android:id="@+id/panoViewFragment"
-        android:name="com.huichongzi.vrardemo.PanoViewFragment"
+        android:name="com.huichongzi.vrardemo.vr.PanoViewFragment"
         android:label="fragment_pano_view"
         tools:layout="@layout/fragment_pano_view" >
         <action
-            android:id="@+id/action_panoViewFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_panoViewFragment_to_vrFragment"
+            app:destination="@id/vrFragment" />
     </fragment>
     <fragment
         android:id="@+id/vrVideoFragment"
-        android:name="com.huichongzi.vrardemo.VrVideoFragment"
+        android:name="com.huichongzi.vrardemo.vr.VrVideoFragment"
         android:label="fragment_vr_video"
         tools:layout="@layout/fragment_vr_video" >
         <action
-            android:id="@+id/action_vrVideoFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_vrVideoFragment_to_vrFragment"
+            app:destination="@id/vrFragment" />
     </fragment>
     <activity
         android:id="@+id/gvrDemoActivity"
-        android:name="com.huichongzi.vrardemo.GvrDemoActivity"
+        android:name="com.huichongzi.vrardemo.vr.GvrDemoActivity"
         android:label="GvrDemoActivity" />
     <fragment
         android:id="@+id/GLESDemoFragment"
-        android:name="com.huichongzi.vrardemo.GLESDemoFragment"
+        android:name="com.huichongzi.vrardemo.vr.GLESDemoFragment"
         android:label="GLESDemoFragment" >
         <action
-            android:id="@+id/action_GLESDemoFragment_to_FirstFragment"
+            android:id="@+id/action_GLESDemoFragment_to_vrFragment"
+            app:destination="@id/vrFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vrFragment"
+        android:name="com.huichongzi.vrardemo.vr.VrFragment"
+        android:label="VrFragment"
+        tools:layout="@layout/fragment_vr">
+        <action
+            android:id="@+id/action_vrFragment_to_panoViewFragment"
+            app:destination="@id/panoViewFragment" />
+        <action
+            android:id="@+id/action_vrFragment_to_gvrDemoActivity"
+            app:destination="@id/gvrDemoActivity" />
+        <action
+            android:id="@+id/action_vrFragment_to_vrVideoFragment"
+            app:destination="@id/vrVideoFragment" />
+        <action
+            android:id="@+id/action_vrFragment_to_GLESDemoFragment"
+            app:destination="@id/GLESDemoFragment" />
+        <action
+            android:id="@+id/action_vrFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>

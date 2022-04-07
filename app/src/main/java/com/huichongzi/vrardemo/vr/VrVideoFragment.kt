@@ -1,4 +1,4 @@
-package com.huichongzi.vrardemo
+package com.huichongzi.vrardemo.vr
 
 import android.net.Uri
 import android.os.Bundle

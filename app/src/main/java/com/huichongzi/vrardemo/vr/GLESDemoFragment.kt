@@ -1,4 +1,4 @@
-package com.huichongzi.vrardemo
+package com.huichongzi.vrardemo.vr
 
 import android.opengl.GLES20
 import android.opengl.GLSurfaceView
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.huichongzi.vrardemo.R
 import com.huichongzi.vrardemo.databinding.FragmentGlesDemoBinding
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -50,8 +51,10 @@ class GLESDemoFragment : Fragment(){
 
                     activity?.apply {
                         //加载着色器
-                        val vertexShaderId = ShaderUtils.compileVertexShader(R.raw.vertex_simple_shade, this)
-                        val fragmentShaderId = ShaderUtils.compileFragmentShader(R.raw.fragment_simple_shade, this)
+                        val vertexShaderId =
+                            ShaderUtils.compileVertexShader(R.raw.vertex_simple_shade, this)
+                        val fragmentShaderId =
+                            ShaderUtils.compileFragmentShader(R.raw.fragment_simple_shade, this)
                         program = ShaderUtils.linkProgram(vertexShaderId, fragmentShaderId)
                         GLES20.glUseProgram(program)
                     }

@@ -1,4 +1,4 @@
-package com.huichongzi.vrardemo
+package com.huichongzi.vrardemo.vr
 
 import android.graphics.BitmapFactory
 import android.net.Uri

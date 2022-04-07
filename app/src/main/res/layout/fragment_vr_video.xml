@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VrVideoFragment">
+    tools:context=".vr.VrVideoFragment">
 
     <com.google.vr.sdk.widgets.video.VrVideoView
         android:id="@+id/vr_video"
