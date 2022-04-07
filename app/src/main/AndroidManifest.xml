@@ -24,6 +24,9 @@
             android:screenOrientation="landscape"
             android:enableVrMode="@string/gvr_vr_mode_component"
             android:resizeableActivity="false"/>
+        <activity android:name=".ZoomVideo"
+            android:theme="@style/Theme.VRARDemo.NoActionBar"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

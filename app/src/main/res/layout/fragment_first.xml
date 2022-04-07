@@ -15,4 +15,12 @@
         android:textAllCaps="false"
         android:layout_marginTop="30dp"
         android:text="VrDemo"/>
+
+    <Button
+        android:id="@+id/zoomvideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_marginTop="30dp"
+        android:text="ZoomVideo"/>
 </LinearLayout>

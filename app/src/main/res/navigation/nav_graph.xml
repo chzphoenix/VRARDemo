@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_vrFragment"
             app:destination="@id/vrFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_zoomVideo"
+            app:destination="@id/zoomVideo" />
     </fragment>
     <fragment
         android:id="@+id/panoViewFragment"
@@ -65,4 +68,8 @@
             android:id="@+id/action_vrFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <activity
+        android:id="@+id/zoomVideo"
+        android:name="com.huichongzi.vrardemo.ZoomVideo"
+        android:label="ZoomVideo" />
 </navigation>
