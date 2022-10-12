@@ -49,6 +49,10 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_FirstFragment_to_vrFragment, null)
         }
 
+        _binding?.ardemo?.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_arFragment, null)
+        }
+
         _binding?.zoomvideo?.setOnClickListener {
             //getVideo.launch("video/*")
             getVideo.launch("*/*")   //浏览所有文件
