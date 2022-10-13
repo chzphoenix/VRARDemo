@@ -57,7 +57,14 @@ class ArFragment : Fragment() {
             Handler().postDelayed({checkAr()}, 200)
         }
         else if(arEnable.isSupported){
-            installARCore()
+            when(arEnable){
+                ArCoreApk.Availability.SUPPORTED_INSTALLED -> {
+                    mSession = Session(activity)
+                }
+                ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD,  ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED -> {
+                    installARCore()
+                }
+            }
         }
         else{
             Log.d("arcore", "不支持arcore")
