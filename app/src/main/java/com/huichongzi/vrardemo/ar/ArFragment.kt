@@ -126,5 +126,6 @@ class ArFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        mSession?.close()
     }
 }
