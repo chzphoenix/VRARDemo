@@ -8,12 +8,27 @@
     android:orientation="vertical"
     tools:context=".FirstFragment">
 
-<!--    <Button-->
-<!--        android:id="@+id/vrdemo"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:text="VrDemo"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/arcore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginLeft="30dp"
+            android:text="ARCore"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/pano_mono"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:text="PanoMono"/>-->
+    </LinearLayout>
 
 </LinearLayout>

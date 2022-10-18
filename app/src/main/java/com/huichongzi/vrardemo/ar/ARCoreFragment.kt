@@ -17,17 +17,16 @@ import androidx.navigation.fragment.findNavController
 import com.google.ar.core.ArCoreApk
 import com.google.ar.core.Session
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException
-import com.huichongzi.vrardemo.R
-import com.huichongzi.vrardemo.databinding.FragmentArBinding
+import com.huichongzi.vrardemo.databinding.FragmentArcoreBinding
 import com.huichongzi.vrardemo.vr.TypeDialog
 import java.lang.Exception
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class ArFragment : Fragment() {
+class ARCoreFragment : Fragment() {
 
-    private var _binding: FragmentArBinding? = null
+    private var _binding: FragmentArcoreBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -41,7 +40,7 @@ class ArFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentArBinding.inflate(inflater, container, false)
+        _binding = FragmentArcoreBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -119,9 +118,10 @@ class ArFragment : Fragment() {
     }
 
     fun init(){
-        _binding?.arcore?.setOnClickListener {
-            findNavController().navigate(R.id.action_arFragment_to_ARCoreFragment, null)
-        }
+        Log.d("arcore", "arcore启动成功")
+        //        _binding?.vrdemo?.setOnClickListener {
+//            findNavController().navigate(R.id.action_FirstFragment_to_vrFragment, null)
+//        }
     }
 
     override fun onDestroyView() {

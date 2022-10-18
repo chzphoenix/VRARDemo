@@ -78,5 +78,13 @@
     <fragment
         android:id="@+id/arFragment"
         android:name="com.huichongzi.vrardemo.ar.ArFragment"
-        android:label="ArFragment" />
+        android:label="ArFragment" >
+        <action
+            android:id="@+id/action_arFragment_to_ARCoreFragment"
+            app:destination="@id/ARCoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ARCoreFragment"
+        android:name="com.huichongzi.vrardemo.ar.ARCoreFragment"
+        android:label="ARCoreFragment" />
 </navigation>
