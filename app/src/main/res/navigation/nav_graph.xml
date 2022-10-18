@@ -18,7 +18,7 @@
             app:destination="@id/zoomVideo" />
         <action
             android:id="@+id/action_FirstFragment_to_arFragment"
-            app:destination="@id/arFragment" />
+            app:destination="@id/arHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/panoViewFragment"
@@ -76,15 +76,22 @@
         android:name="com.huichongzi.vrardemo.ZoomVideo"
         android:label="ZoomVideo" />
     <fragment
-        android:id="@+id/arFragment"
-        android:name="com.huichongzi.vrardemo.ar.ArFragment"
+        android:id="@+id/arHomeFragment"
+        android:name="com.huichongzi.vrardemo.ar.ArHomeFragment"
         android:label="ArFragment" >
         <action
-            android:id="@+id/action_arFragment_to_ARCoreFragment"
+            android:id="@+id/action_arHomeFragment_to_ARCoreFragment"
             app:destination="@id/ARCoreFragment" />
+        <action
+            android:id="@+id/action_arHomeFragment_to_myArFragment"
+            app:destination="@id/myArFragment" />
     </fragment>
     <fragment
         android:id="@+id/ARCoreFragment"
         android:name="com.huichongzi.vrardemo.ar.ARCoreFragment"
         android:label="ARCoreFragment" />
+    <fragment
+        android:id="@+id/myArFragment"
+        android:name="com.huichongzi.vrardemo.ar.MyArFragment"
+        android:label="MyArFragment" />
 </navigation>

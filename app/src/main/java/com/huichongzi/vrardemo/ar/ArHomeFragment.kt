@@ -2,14 +2,12 @@ package com.huichongzi.vrardemo.ar
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -18,16 +16,15 @@ import com.google.ar.core.ArCoreApk
 import com.google.ar.core.Session
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException
 import com.huichongzi.vrardemo.R
-import com.huichongzi.vrardemo.databinding.FragmentArBinding
-import com.huichongzi.vrardemo.vr.TypeDialog
+import com.huichongzi.vrardemo.databinding.FragmentArHomeBinding
 import java.lang.Exception
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class ArFragment : Fragment() {
+class ArHomeFragment : Fragment() {
 
-    private var _binding: FragmentArBinding? = null
+    private var _binding: FragmentArHomeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -41,7 +38,7 @@ class ArFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentArBinding.inflate(inflater, container, false)
+        _binding = FragmentArHomeBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -120,7 +117,10 @@ class ArFragment : Fragment() {
 
     fun init(){
         _binding?.arcore?.setOnClickListener {
-            findNavController().navigate(R.id.action_arFragment_to_ARCoreFragment, null)
+            findNavController().navigate(R.id.action_arHomeFragment_to_ARCoreFragment, null)
+        }
+        _binding?.myArFragment?.setOnClickListener {
+            findNavController().navigate(R.id.action_arHomeFragment_to_myArFragment, null)
         }
     }
 
