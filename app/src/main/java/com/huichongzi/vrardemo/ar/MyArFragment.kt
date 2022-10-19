@@ -10,6 +10,7 @@ import com.google.ar.sceneform.Node
 import com.google.ar.sceneform.math.Vector3
 import com.google.ar.sceneform.rendering.*
 import com.google.ar.sceneform.ux.ArFragment
+import com.google.ar.sceneform.ux.TransformableNode
 import com.huichongzi.vrardemo.R
 
 
@@ -45,10 +46,14 @@ class MyArFragment : ArFragment() {
             val anchorNode = AnchorNode(anchor)
             anchorNode.setParent(arSceneView.scene)
 
-            val node = Node()
-            node.setParent(anchorNode)
-            //node.renderable = testViewRenderable
-            node.renderable = testModelRenderable
+//            val node = Node()
+//            node.setParent(anchorNode)
+//            //node.renderable = testViewRenderable
+//            node.renderable = testModelRenderable
+
+            val transformableNode = TransformableNode(transformationSystem)
+            transformableNode.setParent(anchorNode)
+            transformableNode.renderable = testModelRenderable
         }
 
     }
