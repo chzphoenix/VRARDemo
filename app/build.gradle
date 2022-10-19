@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.google.ar.sceneform.plugin'
 }
 
 android {
@@ -60,3 +61,8 @@ dependencies {
     // Alternatively, use ArSceneView without the UX dependency.
     implementation 'com.google.ar.sceneform:core:1.15.0'
 }
+
+sceneform.asset('sampledata/models/andy.obj', // 'Source Asset Path' specified during import.
+        'default',                            // 'Material Path' specified during import.
+        'sampledata/models/andy.sfa',         // '.sfa Output Path' specified during import.
+        'src/main/res/raw/andy')              // '.sfb Output Path' specified during import.
