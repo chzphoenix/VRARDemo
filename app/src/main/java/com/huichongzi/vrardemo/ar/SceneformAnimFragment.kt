@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.TextView
 import com.google.ar.sceneform.AnchorNode
 import com.google.ar.sceneform.Node
+import com.google.ar.sceneform.animation.ModelAnimator
 import com.google.ar.sceneform.math.Vector3
 import com.google.ar.sceneform.rendering.*
 import com.google.ar.sceneform.ux.ArFragment
@@ -16,6 +17,7 @@ import com.huichongzi.vrardemo.R
 
 class SceneformAnimFragment : ArFragment() {
     lateinit var bodyRenderable : ModelRenderable
+    lateinit var modelAnimator : ModelAnimator
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,6 +25,9 @@ class SceneformAnimFragment : ArFragment() {
         ModelRenderable.builder().setSource(activity, R.raw.andy_dance).build().thenAccept{
                 renderable ->
             bodyRenderable = renderable
+
+            val animData = bodyRenderable.getAnimationData("andy_dance")
+            modelAnimator = ModelAnimator(animData, bodyRenderable)
         }
 
 
@@ -34,6 +39,8 @@ class SceneformAnimFragment : ArFragment() {
             val transformableNode = TransformableNode(transformationSystem)
             transformableNode.setParent(anchorNode)
             transformableNode.renderable = bodyRenderable
+
+            modelAnimator.start()
         }
 
     }
