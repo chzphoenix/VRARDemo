@@ -60,9 +60,24 @@ dependencies {
 
     // Alternatively, use ArSceneView without the UX dependency.
     implementation 'com.google.ar.sceneform:core:1.15.0'
+
+    // Support for animated model renderables.
+    implementation "com.google.ar.sceneform:animation:1.15.0"
 }
 
 sceneform.asset('sampledata/models/andy.obj', // 'Source Asset Path' specified during import.
         'default',                            // 'Material Path' specified during import.
         'sampledata/models/andy.sfa',         // '.sfa Output Path' specified during import.
         'src/main/res/raw/andy')              // '.sfb Output Path' specified during import.
+
+//anim
+sceneform.asset('sampledata/models/andy_dance.fbx',
+        'default',
+        'sampledata/models/andy_dance.sfa',
+        'src/main/res/raw/andy_dance',
+        ['sampledata/models/andy_wave_r.fbx', 'sampledata/models/andy_wave_l.fbx'])
+
+sceneform.asset('sampledata/models/baseball-cap.gltf',
+        'default',
+        'sampledata/models/baseball-cap.sfa',
+        'src/main/res/raw/baseball_cap')

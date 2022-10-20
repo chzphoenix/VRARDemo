@@ -78,20 +78,27 @@
     <fragment
         android:id="@+id/arHomeFragment"
         android:name="com.huichongzi.vrardemo.ar.ArHomeFragment"
-        android:label="ArFragment" >
+        android:label="ArHomeFragment">
         <action
             android:id="@+id/action_arHomeFragment_to_ARCoreFragment"
             app:destination="@id/ARCoreFragment" />
         <action
-            android:id="@+id/action_arHomeFragment_to_myArFragment"
-            app:destination="@id/myArFragment" />
+            android:id="@+id/action_arHomeFragment_to_sceneformArFragment"
+            app:destination="@id/sceneformArFragment" />
+        <action
+            android:id="@+id/action_arHomeFragment_to_sceneformAnimFragment"
+            app:destination="@id/sceneformAnimFragment" />
     </fragment>
     <fragment
         android:id="@+id/ARCoreFragment"
         android:name="com.huichongzi.vrardemo.ar.ARCoreFragment"
         android:label="ARCoreFragment" />
     <fragment
-        android:id="@+id/myArFragment"
-        android:name="com.huichongzi.vrardemo.ar.MyArFragment"
-        android:label="MyArFragment" />
+        android:id="@+id/sceneformArFragment"
+        android:name="com.huichongzi.vrardemo.ar.SceneformArFragment"
+        android:label="SceneformArFragment" />
+    <fragment
+        android:id="@+id/sceneformAnimFragment"
+        android:name="com.huichongzi.vrardemo.ar.SceneformAnimFragment"
+        android:label="SceneformAnimFragment" />
 </navigation>

@@ -119,8 +119,11 @@ class ArHomeFragment : Fragment() {
         _binding?.arcore?.setOnClickListener {
             findNavController().navigate(R.id.action_arHomeFragment_to_ARCoreFragment, null)
         }
-        _binding?.myArFragment?.setOnClickListener {
-            findNavController().navigate(R.id.action_arHomeFragment_to_myArFragment, null)
+        _binding?.sceneformAr?.setOnClickListener {
+            findNavController().navigate(R.id.action_arHomeFragment_to_sceneformArFragment, null)
+        }
+        _binding?.sceneformAnim?.setOnClickListener {
+            findNavController().navigate(R.id.action_arHomeFragment_to_sceneformAnimFragment, null)
         }
     }
 

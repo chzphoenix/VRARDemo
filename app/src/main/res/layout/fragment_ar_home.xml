@@ -8,6 +8,12 @@
     android:orientation="vertical"
     tools:context=".FirstFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="ARCore"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +37,11 @@
 <!--            android:text="PanoMono"/>-->
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sceneform"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,20 +49,20 @@
         android:layout_marginTop="30dp">
 
         <Button
-            android:id="@+id/my_ar_fragment"
+            android:id="@+id/sceneform_ar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:layout_marginLeft="30dp"
-            android:text="ArFragment"/>
+            android:text="HelloAr"/>
 
-        <!--        <Button-->
-        <!--            android:id="@+id/pano_mono"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:textAllCaps="false"-->
-        <!--            android:layout_marginLeft="30dp"-->
-        <!--            android:text="PanoMono"/>-->
+        <Button
+            android:id="@+id/sceneform_anim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginLeft="30dp"
+            android:text="AnimAr"/>
     </LinearLayout>
 
 </LinearLayout>

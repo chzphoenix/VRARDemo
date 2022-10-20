@@ -14,7 +14,7 @@ import com.google.ar.sceneform.ux.TransformableNode
 import com.huichongzi.vrardemo.R
 
 
-class MyArFragment : ArFragment() {
+class SceneformArFragment : ArFragment() {
     lateinit var testViewRenderable : ViewRenderable
     lateinit var testModelRenderable : ModelRenderable
 
