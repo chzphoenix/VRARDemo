@@ -53,6 +53,10 @@ class SceneformAnimFragment : ArFragment() {
             bodyNode.setBoneAttachment("hat_point", boneNode)
 
             val hatNode = Node()
+            hatNode.setOnTouchListener { hitTestResult, motionEvent ->
+                hatNode.isEnabled = false
+                return@setOnTouchListener true
+            }
             hatNode.renderable = hatRenderable
             hatNode.setParent(boneNode)
             hatNode.worldScale = Vector3.one()
