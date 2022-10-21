@@ -88,6 +88,9 @@
         <action
             android:id="@+id/action_arHomeFragment_to_sceneformAnimFragment"
             app:destination="@id/sceneformAnimFragment" />
+        <action
+            android:id="@+id/action_arHomeFragment_to_augmentedImageFragment"
+            app:destination="@id/augmentedImageFragment" />
     </fragment>
     <fragment
         android:id="@+id/ARCoreFragment"
@@ -101,4 +104,8 @@
         android:id="@+id/sceneformAnimFragment"
         android:name="com.huichongzi.vrardemo.ar.SceneformAnimFragment"
         android:label="SceneformAnimFragment" />
+    <fragment
+        android:id="@+id/augmentedImageFragment"
+        android:name="com.huichongzi.vrardemo.ar.AugmentedImageFragment"
+        android:label="AugmentedImageFragment" />
 </navigation>
