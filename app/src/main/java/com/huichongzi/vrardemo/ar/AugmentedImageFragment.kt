@@ -74,6 +74,7 @@ class AugmentedImageFragment : ArFragment() {
     override fun getSessionConfiguration(session: Session?): Config {
         val config =  super.getSessionConfiguration(session)
         context?.assets?.apply {
+            //通过图片生成数据库，但是这样会比较慢
 //            val bitmap = BitmapFactory.decodeStream(this.open("default.jpg"))
 //            val augmentedImageDatabase = AugmentedImageDatabase(session)
 //            augmentedImageDatabase.addImage("default.jpg", bitmap)
