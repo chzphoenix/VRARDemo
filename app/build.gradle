@@ -81,3 +81,9 @@ sceneform.asset('sampledata/models/baseball-cap.gltf',
         'default',
         'sampledata/models/baseball-cap.sfa',
         'src/main/res/raw/baseball_cap')
+
+//face
+sceneform.asset('sampledata/models/fox_face.fbx',
+        'sampledata/models/fox_face_material.mat',
+        'sampledata/models/fox_face.sfa',
+        'src/main/res/raw/fox_face')

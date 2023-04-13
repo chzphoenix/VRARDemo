@@ -131,6 +131,9 @@ class ArHomeFragment : Fragment() {
         _binding?.augmentedImage?.setOnClickListener {
             findNavController().navigate(R.id.action_arHomeFragment_to_augmentedImageFragment, null)
         }
+        _binding?.augmentedFace?.setOnClickListener {
+            findNavController().navigate(R.id.action_arHomeFragment_to_augmentedFaceFragment, null)
+        }
     }
 
     override fun onDestroyView() {

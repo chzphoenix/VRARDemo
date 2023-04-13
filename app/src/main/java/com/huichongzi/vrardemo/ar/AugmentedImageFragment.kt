@@ -60,6 +60,7 @@ class AugmentedImageFragment : ArFragment() {
                                 val node = Node()
                                 node.setParent(anchorNode)
                                 node.renderable = testModelRenderable
+                                node.worldScale = Vector3(0.3f, 0.3f, 0.3f)
                             }
                         }
                         TrackingState.STOPPED -> {
