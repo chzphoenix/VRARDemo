@@ -125,6 +125,9 @@ class ArHomeFragment : Fragment() {
         _binding?.sceneformAnim?.setOnClickListener {
             findNavController().navigate(R.id.action_arHomeFragment_to_sceneformAnimFragment, null)
         }
+        _binding?.sceneformSkeleton?.setOnClickListener {
+            findNavController().navigate(R.id.action_arHomeFragment_to_sceneformSkeletonFragment, null)
+        }
         _binding?.augmentedImage?.setOnClickListener {
             findNavController().navigate(R.id.action_arHomeFragment_to_augmentedImageFragment, null)
         }
