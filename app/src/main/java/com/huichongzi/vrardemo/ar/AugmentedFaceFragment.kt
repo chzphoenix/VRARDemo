@@ -61,37 +61,30 @@ class AugmentedFaceFragment : ArFragment() {
             })
 
         arSceneView.scene.addOnUpdateListener { frameTime ->
-            val frame = arSceneView.arFrame
-            frame?.apply {
-                val faceList: Collection<AugmentedFace> =
-                    arSceneView.session?.getAllTrackables<AugmentedFace>(
-                        AugmentedFace::class.java
-                    ) ?: listOf()
+            val faceList: Collection<AugmentedFace> =
+                arSceneView.session?.getAllTrackables<AugmentedFace>(
+                    AugmentedFace::class.java
+                ) ?: listOf()
 
-                // Make new AugmentedFaceNodes for any new faces.
-
-                // Make new AugmentedFaceNodes for any new faces.
-                for (face in faceList) {
-                    if (!faceNodeMap.containsKey(face)) {
-                        val faceNode = AugmentedFaceNode(face)
-                        faceNode.setParent(arSceneView.scene)
-                        faceNode.faceRegionsRenderable = faceRegionsRenderable
-                        faceNode.faceMeshTexture = faceMeshTexture
-                        faceNodeMap.put(face, faceNode)
-                    }
+            //为每个面部添加素材
+            for (face in faceList) {
+                if (!faceNodeMap.containsKey(face)) {
+                    val faceNode = AugmentedFaceNode(face)
+                    faceNode.setParent(arSceneView.scene)
+                    faceNode.faceRegionsRenderable = faceRegionsRenderable
+                    faceNode.faceMeshTexture = faceMeshTexture
+                    faceNodeMap.put(face, faceNode)
                 }
+            }
 
-                // Remove any AugmentedFaceNodes associated with an AugmentedFace that stopped tracking.
-
-                // Remove any AugmentedFaceNodes associated with an AugmentedFace that stopped tracking.
-                val iter: MutableIterator<Map.Entry<AugmentedFace, AugmentedFaceNode>> =
-                    faceNodeMap.entries.iterator()
-                while (iter.hasNext()) {
-                    val (face, faceNode) = iter.next()
-                    if (face.trackingState == TrackingState.STOPPED) {
-                        faceNode.setParent(null)
-                        iter.remove()
-                    }
+            //当检测状态是STOPPED，则移除素材
+            val iter: MutableIterator<Map.Entry<AugmentedFace, AugmentedFaceNode>> =
+                faceNodeMap.entries.iterator()
+            while (iter.hasNext()) {
+                val (face, faceNode) = iter.next()
+                if (face.trackingState == TrackingState.STOPPED) {
+                    faceNode.setParent(null)
+                    iter.remove()
                 }
             }
         }
